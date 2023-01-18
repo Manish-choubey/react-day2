@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { Button, Textarea } from 'evergreen-ui'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function App() {
+
+// State for our summary of poem
+const [summary, setSummary] = React.useState('')
+
+return (
+	<div style={{
+	display: 'block', width: 700, paddingLeft: 30
+	}}>
+	<h4>TEXT AREA FOR INTRODUCTION/BIO</h4>
+	<Textarea
+		onChange={(e) => setSummary(e.target.value.toUpperCase())}
+    
+		placeholder="Write Your Bio"
+  
+	/> <br></br>
+	Summary: {summary}
+	</div>
+);
 }
-
-export default App;
